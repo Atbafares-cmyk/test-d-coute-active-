@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pratiquez-vous l'écoute active ? - auto-évaluation</title>
+<meta name="description" content="Auto-évaluation des réflexes de l'écoute active, avec bilan et corrigé indicatif.">
+<script>
+(function(){try{var t=localStorage.getItem('theme-23mindset');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
+</script>
+<style>
+:root{
+  --bg:#12131a; --card:#1c1e29; --ink:#f2f3f8; --muted:#a9adc0; --line:#323648;
+  --accent:#67E8F9; --on-accent:#14102a; --soft:#2a2547; --ok:#6ee7a8; --warn:#fbbf6a; --focus:#ffffff;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f5f6fb; --card:#ffffff; --ink:#1b1d2a; --muted:#585c72; --line:#d9dcea;
+  --accent:#0B6E80; --on-accent:#ffffff; --soft:#ece8fb; --ok:#14804a; --warn:#9a5b00; --focus:#000000;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f5f6fb; --card:#ffffff; --ink:#1b1d2a; --muted:#585c72; --line:#d9dcea;
+    --accent:#0B6E80; --on-accent:#ffffff; --soft:#ece8fb; --ok:#14804a; --warn:#9a5b00; --focus:#000000;
+    color-scheme:light;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding:16px 16px 96px}
+main{max-width:720px;margin:0 auto}
+h1{font-size:1.55rem;line-height:1.25;margin:.2em 0 .3em}
+h2{font-size:1.25rem;margin:1.2em 0 .4em}
+p{margin:.5em 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
+.kicker{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.btn{display:block;width:100%;min-height:52px;border:0;border-radius:14px;background:var(--accent);color:var(--on-accent);font:inherit;font-weight:700;padding:12px 16px;cursor:pointer;margin:10px 0;text-align:center}
+.btn.alt{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px}
+.row .btn{margin:10px 0}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible+label{outline:3px solid var(--focus);outline-offset:2px}
+.progress{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:10px 0}
+.progress>i{display:block;height:100%;background:var(--accent);width:0;transition:width .2s}
+.dots{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.dots button{min-width:44px;min-height:44px;border-radius:50%;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:700;cursor:pointer}
+.dots button.done{background:var(--soft);border-color:var(--accent)}
+.dots button.cur{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.quote{border-left:5px solid var(--accent);padding:6px 0 6px 14px;margin:12px 0;font-style:italic}
+.opt{position:relative;margin:10px 0}
+.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.opt label{display:flex;gap:12px;align-items:flex-start;padding:14px;border:2px solid var(--line);border-radius:14px;background:var(--card);cursor:pointer}
+.opt label b{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--soft);color:var(--ink)}
+.opt input:checked+label{border-color:var(--accent);background:var(--soft)}
+.opt input:checked+label b{background:var(--accent);color:var(--on-accent)}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;margin:12px 0}
+.bar .track{grid-column:1 / -1;height:14px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar .track i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.bar.top .track i{background:var(--ok)}
+.bar span.n{font-weight:800}
+.tag{display:inline-block;font-size:.8rem;font-weight:700;padding:2px 10px;border-radius:99px;background:var(--soft);border:1px solid var(--line)}
+details{border:1px solid var(--line);border-radius:12px;background:var(--card);margin:10px 0;padding:6px 14px}
+summary{cursor:pointer;font-weight:700;padding:8px 0;min-height:44px}
+.chosen{border-color:var(--accent);background:var(--soft)}
+.li{padding:8px 10px;border:1px solid var(--line);border-radius:10px;margin:6px 0}
+footer{max-width:720px;margin:28px auto 0;font-size:.82rem;color:var(--muted);text-align:center}
+#theme-toggle{position:fixed;right:14px;bottom:14px;z-index:9;min-height:48px;padding:0 16px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.hidden{display:none!important}
+.sticky{position:sticky;bottom:0;background:var(--bg);padding:6px 0 10px}
+@media print{
+  :root,:root[data-theme="dark"]{--bg:#fff;--card:#fff;--ink:#000;--muted:#333;--line:#bbb;--accent:#0B6E80;--on-accent:#fff;--soft:#eee;--ok:#14804a;--warn:#7a4800}
+  #theme-toggle,.btn,.dots,.sticky{display:none!important}
+  body{padding:0}
+  details{display:block}
+  details>*{display:block}
+}
+</style>
+</head>
+<body>
+<main id="app">
+
+<section id="home" class="card">
+  <div class="kicker">&Eacute;coute active</div>
+  <h1>Pratiquez-vous l'&eacute;coute active ?</h1>
+  <p><b>8 points</b> &middot; environ <b>3 minutes</b> &middot; seul, sur votre t&eacute;l&eacute;phone</p>
+  <p>Pour chaque point, indiquez &agrave; quelle fr&eacute;quence vous le faites r&eacute;ellement, quand vous &eacute;coutez un coll&egrave;gue ou un collaborateur.</p>
+  <p>Il n'y a pas de bonne ou de mauvaise r&eacute;ponse : l'objectif est de choisir <b>un</b> r&eacute;flexe &agrave; travailler.</p>
+  <p class="muted">Vos r&eacute;ponses restent sur votre t&eacute;l&eacute;phone : rien n'est envoy&eacute; ni enregistr&eacute;.</p>
+  <button class="btn" id="start" type="button">Commencer</button>
+</section>
+
+<section id="quiz" class="hidden">
+  <div class="kicker">Mon auto-&eacute;valuation</div>
+  <div class="progress" aria-hidden="true"><i id="pbar"></i></div>
+  <h2>Ayez toujours ces questions en t&ecirc;te</h2>
+  <p class="muted">Quand j'&eacute;coute, je me pose cette question :</p>
+  <div id="listq"></div>
+  <h2>Quatre r&eacute;flexes</h2>
+  <p class="muted">J'applique ce conseil :</p>
+  <div id="listr"></div>
+  <button class="btn" id="see" type="button" disabled>Voir mon bilan</button>
+  <p class="muted" id="left" style="text-align:center;margin:0"></p>
+</section>
+
+<section id="result" class="hidden" aria-live="polite">
+  <div class="kicker">Mon bilan</div>
+  <h1 id="score"></h1>
+  <p id="band"></p>
+  <p class="muted">Rep&egrave;res indicatifs : 0 &agrave; 8 points, &agrave; d&eacute;velopper ; 9 &agrave; 16, en progression ; 17 &agrave; 24, bien ancr&eacute;s.</p>
+  <h2>&Agrave; travailler en priorit&eacute;</h2>
+  <div id="prio"></div>
+  <h2>Corrig&eacute; indicatif</h2>
+  <p class="muted">Une r&eacute;ponse possible, &agrave; adapter &agrave; votre contexte. Les points les moins pratiqu&eacute;s sont en premier.</p>
+  <div id="corr"></div>
+  <h2>Mon engagement</h2>
+  <div class="card">
+    <p><b>Le r&eacute;flexe que je travaille cette semaine :</b></p>
+    <div id="pick"></div>
+    <p><b>Je v&eacute;rifie :</b></p>
+    <div id="checks">
+      <div class="opt"><input type="checkbox" id="c1"><label for="c1"><b>&#10003;</b><span>Je sais dans quelle situation je vais l'appliquer.</span></label></div>
+      <div class="opt"><input type="checkbox" id="c2"><label for="c2"><b>&#10003;</b><span>Je sais ce que je ferai ou dirai concr&egrave;tement.</span></label></div>
+      <div class="opt"><input type="checkbox" id="c3"><label for="c3"><b>&#10003;</b><span>Je sais comment je verrai que je progresse.</span></label></div>
+    </div>
+  </div>
+  <button class="btn" id="again" type="button">Recommencer</button>
+</section>
+
+</main>
+<footer>&copy; 2026 - 23 MindSet - Fares ATBA<br>D'apr&egrave;s le livret d'exercices Excellens Formation - mise en forme num&eacute;rique 23 MindSet - Fares ATBA<br>Texte de l'auto-&eacute;valuation tir&eacute; de &laquo; R&eacute;ussissez toutes vos n&eacute;gociations &raquo;, de Lionel Bellenger, ESF &Eacute;diteurs, 2004</footer>
+<button id="theme-toggle" type="button" aria-label="Changer l'affichage clair ou sombre">&#9728; Clair</button>
+<script>var DATA={"items": [{"g": "q", "txt": "Que veut-il me dire à travers ses paroles ?", "bonne": "Je cherche le message derrière les mots, pas seulement les mots eux-mêmes.", "pilier": "l'empathie"}, {"g": "q", "txt": "Quels sont ses points de vue ?", "bonne": "Je repère sa façon de voir la situation, même si elle diffère de la mienne.", "pilier": "l'empathie"}, {"g": "q", "txt": "Quelle est sa préoccupation ?", "bonne": "Je repère ce qui compte pour lui : son enjeu, son besoin du moment.", "pilier": "l'empathie"}, {"g": "q", "txt": "Que ressent-il ?", "bonne": "Je repère l'émotion exprimée, et je ne la minimise pas.", "pilier": "l'empathie"}, {"g": "r", "txt": "Ne portez pas de jugement sur ce que vous dit votre interlocuteur pour ne pas le bloquer.", "bonne": "Je garde mon avis pour plus tard et je n'interromps pas par un commentaire moral.", "pilier": "le silence"}, {"g": "r", "txt": "Manifestez votre intérêt en reprenant l'expression clé de son intervention pour l'engager à aller plus loin ou reformulez ce qui vient d'être dit.", "bonne": "Je reprends ses mots clés ou je reformule en une phrase, sans déformer ce qu'il a dit.", "pilier": "la reformulation"}, {"g": "r", "txt": "Posez des questions pour faire préciser, sans être inquisiteur.", "bonne": "Je pose des questions ouvertes pour préciser, une à la fois, sans faire un interrogatoire.", "pilier": "la questiologie"}, {"g": "r", "txt": "Une fois la situation mieux cernée, donnez votre point de vue en adaptant votre formulation à la situation de votre interlocuteur.", "bonne": "J'attends d'avoir compris avant de donner mon avis, puis j'adapte mes mots à la personne.", "pilier": "la reformulation et l'empathie"}], "scale": ["Jamais", "Parfois", "Souvent", "Toujours"]};
+(function(){
+  var items=DATA.items, N=items.length, ans=new Array(N).fill(null);
+  var $=function(id){return document.getElementById(id);};
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+  function show(id){['home','quiz','result'].forEach(function(x){$(x).classList.toggle('hidden',x!==id);});window.scrollTo(0,0);}
+  function build(){
+    var hq='',hr='';
+    items.forEach(function(it,i){
+      var h='<div class="card"><p>'+(it.g==='q'?'« '+esc(it.txt)+' »':esc(it.txt))+'</p><div role="radiogroup" aria-label="Fréquence">';
+      DATA.scale.forEach(function(s,k){h+='<div class="opt"><input type="radio" name="i'+i+'" id="i'+i+'_'+k+'" value="'+k+'"><label for="i'+i+'_'+k+'"><b>'+k+'</b><span>'+s+'</span></label></div>';});
+      h+='</div></div>';
+      if(it.g==='q')hq+=h;else hr+=h;
+    });
+    $('listq').innerHTML=hq;$('listr').innerHTML=hr;
+    Array.prototype.forEach.call(document.querySelectorAll('#quiz input[type=radio]'),function(inp){
+      inp.addEventListener('change',function(){var i=+inp.name.slice(1);ans[i]=+inp.value;update();});
+    });
+    var pk='';items.forEach(function(it,i){pk+='<div class="opt"><input type="radio" name="pick" id="p'+i+'" value="'+i+'"><label for="p'+i+'"><b>'+(i+1)+'</b><span>'+esc(it.bonne)+'</span></label></div>';});
+    $('pick').innerHTML=pk;
+  }
+  function answered(){return ans.filter(function(a){return a!==null;}).length;}
+  function update(){
+    var left=N-answered();$('see').disabled=left>0;
+    $('left').textContent=left>0?('Il reste '+left+' point'+(left>1?'s':'')+' sans réponse.'):'Tous les points ont une réponse.';
+    $('pbar').style.width=(answered()/N*100)+'%';
+  }
+  function result(){
+    var tot=ans.reduce(function(a,b){return a+b;},0);
+    $('score').textContent='Mon score : '+tot+' / '+(N*3);
+    $('band').textContent=tot<=8?'Ces réflexes sont encore à développer : choisissez-en un seul pour commencer.':(tot<=16?'Ces réflexes sont en progression : consolidez celui qui est le moins pratiqué.':'Ces réflexes sont bien ancrés : gardez-les, et testez-les dans les situations tendues.');
+    var order=items.map(function(it,i){return {i:i,s:ans[i]};}).sort(function(a,b){return a.s-b.s||a.i-b.i;});
+    var low=order.filter(function(o){return o.s<=1;}).slice(0,3);
+    $('prio').innerHTML=low.length?low.map(function(o){return '<div class="li chosen"><span class="tag">'+DATA.scale[o.s]+'</span><br>'+esc(items[o.i].g==='q'?'« '+items[o.i].txt+' »':items[o.i].txt)+'</div>';}).join(''):'<div class="li">Aucun point n\'est en dessous de « souvent » : continuez ainsi.</div>';
+    $('corr').innerHTML=order.map(function(o){var it=items[o.i];return '<details><summary>'+DATA.scale[o.s]+' · '+esc(it.g==='q'?'« '+it.txt+' »':it.txt)+'</summary><p><b>Ce qui signale une bonne pratique :</b> '+esc(it.bonne)+'</p><p class="muted">Dans la formation : voir '+esc(it.pilier)+', l\'un des quatre piliers de l\'écoute active (le silence, la reformulation, l\'empathie, la questiologie).</p></details>';}).join('');
+    show('result');window.__score=tot;
+  }
+  $('start').addEventListener('click',function(){show('quiz');update();});
+  $('see').addEventListener('click',function(){if(!$('see').disabled)result();});
+  $('again').addEventListener('click',function(){ans=new Array(N).fill(null);build();Array.prototype.forEach.call(document.querySelectorAll('#checks input'),function(c){c.checked=false;});show('home');});
+  build();
+})();
+
+
+(function(){
+  var btn=document.getElementById('theme-toggle');
+  function current(){var a=document.documentElement.getAttribute('data-theme');if(a)return a;return (window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}
+  function label(){btn.textContent=current()==='dark'?'☀ Clair':'☾ Sombre';}
+  btn.addEventListener('click',function(){var n=current()==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('theme-23mindset',n);}catch(e){}label();});
+  label();
+})();
+</script>
+</body>
+</html>
